@@ -15,15 +15,18 @@ const initialState = [{
   id: 1,
   title: 'title 1',
   author: 'author 1',
+  completed: 0,
 },
 {
   id: 2,
   title: 'title 2',
   author: 'author 2',
+  completed: 0,
 }, {
   id: 3,
   title: 'title 3',
   author: 'author 3',
+  completed: 0,
 }];
 
 const booksReducer = (books = initialState, action) => {
