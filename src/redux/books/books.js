@@ -1,40 +1,41 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+
 const ADD_BOOK = 'bookStore/books/addBook';
 const DELETE_BOOK = 'bookStore/books/deleteBook';
+const SET_FETCHED_BOOKS = 'bookStore/books/setFetchedBooks';
 
-export const addBook = (newBook) => ({
-  type: ADD_BOOK,
-  payload: newBook,
+const apiURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/5QhUfSFZl7dr41EG5uKQ/books';
+
+export const fetchBooks = createAsyncThunk(SET_FETCHED_BOOKS, async () => {
+  const books = await axios.get(apiURL);
+  return books.data;
 });
 
-export const deleteBook = (id) => ({
-  type: DELETE_BOOK,
-  payload: id,
+export const addBook = createAsyncThunk(ADD_BOOK, async (newBook) => {
+  const response = await axios.post(apiURL, newBook);
+  if (response.data === 'Created') {
+    const books = await axios.get(apiURL);
+    return books.data;
+  }
+  return null;
 });
 
-const initialState = [{
-  id: '1',
-  title: 'title 1',
-  author: 'author 1',
-  completed: 0,
-},
-{
-  id: '2',
-  title: 'title 2',
-  author: 'author 2',
-  completed: 0,
-}, {
-  id: '3',
-  title: 'title 3',
-  author: 'author 3',
-  completed: 0,
-}];
+export const deleteBook = createAsyncThunk(DELETE_BOOK, async (id) => {
+  const response = await axios.delete(`${apiURL}/${id}`);
+  if (response.data === 'The book was deleted successfully!') {
+    const books = await axios.get(apiURL);
+    return books.data;
+  }
+  return null;
+});
 
-const booksReducer = (books = initialState, action) => {
+const booksReducer = (books = [], action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return [...books, action.payload];
-    case DELETE_BOOK:
-      return books.filter((book) => book.id !== action.payload);
+    case `${ADD_BOOK}/fulfilled`:
+    case `${SET_FETCHED_BOOKS}/fulfilled`:
+    case `${DELETE_BOOK}/fulfilled`:
+      return action.payload;
     default:
       return books;
   }

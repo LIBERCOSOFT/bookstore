@@ -27,10 +27,10 @@ const Form = () => {
     e.preventDefault();
     if (formData.title.length > 0 && formData.author.length > 1) {
       const newBook = {
-        id: uuidv4(),
+        item_id: uuidv4(),
         title: formData.title,
         author: formData.author,
-        completed: 0,
+        category: 'Fiction',
       };
       dispatch(addBook(newBook));
       setFormData({ title: '', author: '' });
