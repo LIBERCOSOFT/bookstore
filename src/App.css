@@ -11,11 +11,6 @@ body {
   background-color: #f4f5f9;
 }
 
-.App {
-  margin: 4em;
-  background-color: #fafafa;
-}
-
 /* Navbar Styles */
 nav {
   display: flex;
