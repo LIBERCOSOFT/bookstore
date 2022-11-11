@@ -4,7 +4,7 @@
 
 > The Bookstore is a website that display a list of books, add a book, and remove a selected book.
 
-<!-- ![screenshot](./sec.png) -->
+![screenshot](./src/components/images/Screenshot.png)
 
 ## Built With
 
