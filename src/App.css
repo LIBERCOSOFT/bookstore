@@ -7,6 +7,15 @@
   margin: 0;
 }
 
+body {
+  background-color: #f4f5f9;
+}
+
+.App {
+  margin: 4em;
+  background-color: #fafafa;
+}
+
 /* Navbar Styles */
 nav {
   display: flex;
@@ -15,6 +24,7 @@ nav {
   margin: 0 0 2.375rem;
   padding: 1.438rem 6.188rem 1.688rem 6.25rem;
   background-color: #fff;
+  border-bottom: solid 1px #e8e8e8;
 }
 
 nav > div {
@@ -58,6 +68,10 @@ nav > div > ul > li > a {
   text-decoration: none;
 }
 
+.active__link {
+  color: #0290ff;
+}
+
 .profileLogo {
   height: 2.715rem;
   width: 2.715rem;
@@ -66,7 +80,7 @@ nav > div > ul > li > a {
 /* Book Item */
 .book__item {
   height: 10.625rem;
-  margin: 2.313rem 6.25rem 0;
+  margin: 2.313rem 6.25rem;
   padding: 2rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
@@ -96,6 +110,11 @@ nav > div > ul > li > a {
   height: 2.063rem;
 }
 
+.categories__container > p {
+  font-size: 3em;
+  margin: 1em auto;
+}
+
 .book__item > .details > p {
   height: 1.125rem;
   margin: 0 2.438rem 0 0;
@@ -120,6 +139,18 @@ nav > div > ul > li > a {
   letter-spacing: normal;
 }
 
+.form__container h2 {
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: #888;
+}
+
 .book__item > .details > h2 {
   font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
   font-size: 2em;
@@ -139,6 +170,17 @@ nav > div > ul > li > a {
   font-size: 0.875rem;
   font-weight: 300;
   color: #4386bf;
+  cursor: pointer;
+}
+
+.categories__container > button {
+  border: none;
+  background-color: #4386bf;
+  padding: 1em;
+  font-family: 'RobotoSlab', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -219,4 +261,48 @@ nav > div > ul > li > a {
   font-style: normal;
   line-height: normal;
   letter-spacing: normal;
+}
+
+.form__container {
+  height: 10.625rem;
+  margin: 2.313rem 6.25rem 0;
+  border-radius: 4px;
+  border-top: solid 1px #e8e8e8;
+}
+
+.form__container > form {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.5fr 0.5fr;
+  gap: 1em;
+}
+
+.form__container > form > select,
+.form__container > form > input {
+  padding: 1em 2em;
+  border-radius: 4px;
+  background-color: #fff;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.15px;
+  border: 2px solid #e8e8e8;
+  outline-style: none;
+}
+
+.form__container > form > select:focus,
+.form__container > form > input:focus {
+  border: 2px solid #0290ff;
+}
+
+.form__container > form > input[type=submit] {
+  background-color: #0290ff;
+  color: #fff;
+}
+
+.categories__container {
+  margin: 0 4.5em;
+  padding: 2em;
 }

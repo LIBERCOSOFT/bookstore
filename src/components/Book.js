@@ -24,24 +24,25 @@ const Book = ({
           <button type="button" id={id}>Edit</button>
         </div>
       </div>
-
-      <div className="progress">
-        <div className="progress__bar__container">
-          <div className="progress__bar" />
+      <div className="status">
+        <div className="progress">
+          <div className="progress__bar__container">
+            <div className="progress__bar" />
+          </div>
+          <div className="progress__percent__container">
+            <p className="progress__percent">
+              {Math.floor(Math.random() * 100)}
+              %
+            </p>
+            <p className="progress__completed">Completed</p>
+          </div>
+          <div className="divider" />
         </div>
-        <div className="progress__percent__container">
-          <p className="progress__percent">
-            {Math.floor(Math.random() * 100)}
-            %
-          </p>
-          <p className="progress__completed">Completed</p>
+        <div className="chapter">
+          <span>CURRENT CHAPTER</span>
+          <p>Chapter X</p>
+          <button type="button">UPDATE PROGRESS</button>
         </div>
-        <div className="divider" />
-      </div>
-      <div className="chapter">
-        <span>CURRENT CHAPTER</span>
-        <p>Chapter 17</p>
-        <button type="button">UPDATE PROGRESS</button>
       </div>
     </div>
   );

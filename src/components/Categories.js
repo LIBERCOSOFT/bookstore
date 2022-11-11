@@ -8,10 +8,10 @@ const Categories = () => {
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className="categories__container">
       <button type="button" onClick={() => dispatch(checkStatus())}>Check status</button>
       <p>{categories}</p>
-    </>
+    </div>
   );
 };
 
